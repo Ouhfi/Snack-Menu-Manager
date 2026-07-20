@@ -1,58 +1,59 @@
 # 🍔 Snack Menu Manager
 
-Une application **Full Stack** permettant de gérer le menu d'un snack grâce à une API REST et une application mobile Expo.
-L'application fonctionne même sans connexion Internet grâce à une synchronisation en arrière-plan et un cache local.
+A **Full Stack** application that allows snack owners to manage their menu through a REST API and an Expo mobile application.
+
+The application continues to work even without an Internet connection thanks to **background synchronization** and **local caching**.
 
 ---
 
-# 📌 Présentation
+# 📖 Overview
 
-Ce projet a été réalisé dans le cadre d'un projet pédagogique.
+This project was developed as part of a learning program.
 
-L'objectif est de développer une application complète permettant à un propriétaire de snack de gérer facilement son menu.
+Its goal is to provide a complete solution for snack owners to easily manage their menu from a mobile application.
 
-L'application est composée de deux parties :
+The project consists of two parts:
 
-* **Backend** : API REST développée avec Express et PostgreSQL
-* **Mobile** : Application Expo utilisant TanStack Query avec synchronisation en arrière-plan
+* **Backend:** REST API built with Express and PostgreSQL.
+* **Mobile:** Expo application powered by TanStack Query with background synchronization.
 
-Le projet met principalement l'accent sur :
+The main focus of this project is:
 
-* Architecture propre
-* Documentation API
-* Gestion du cache
-* Fonctionnement hors-ligne
-* Synchronisation automatique
+* Clean architecture
+* API documentation
+* Data caching
+* Offline support
+* Automatic background synchronization
 
 ---
 
-# ✨ Fonctionnalités
+# ✨ Features
 
 ## Backend
 
-* CRUD complet des plats
-* Validation des données
-* Gestion des erreurs
-* Documentation OpenAPI
-* Interface Scalar UI
-* Base PostgreSQL avec Sequelize
+* Complete CRUD operations for menu items
+* Data validation
+* Error handling
+* OpenAPI documentation
+* Scalar UI integration
+* PostgreSQL database using Sequelize ORM
 
 ## Mobile
 
-* Liste des plats
-* Ajouter un plat
-* Modifier un plat
-* Supprimer un plat
-* Changer la disponibilité
-* Synchronisation manuelle
-* Synchronisation automatique en arrière-plan
-* Cache local AsyncStorage
-* Mode hors-ligne
-* Affichage de la dernière synchronisation
+* Display all menu items
+* Add a new dish
+* Edit an existing dish
+* Delete a dish
+* Toggle dish availability
+* Manual synchronization
+* Automatic background synchronization
+* Local caching with AsyncStorage
+* Offline mode
+* Display the last synchronization time
 
 ---
 
-# 🛠 Stack Technique
+# 🛠 Tech Stack
 
 ## Backend
 
@@ -76,7 +77,7 @@ Le projet met principalement l'accent sur :
 
 ---
 
-# 📂 Structure du projet
+# 📂 Project Structure
 
 ```text
 snack-menu-manager/
@@ -112,81 +113,81 @@ snack-menu-manager/
 
 ---
 
-# 🗄 Base de données
+# 🗄 Database Schema
 
-Table **plats**
+Table: **dishes**
 
-| Champ      | Type               |
+| Column     | Type               |
 | ---------- | ------------------ |
 | id         | SERIAL PRIMARY KEY |
-| nom        | VARCHAR(100)       |
-| prix       | NUMERIC(6,2)       |
-| categorie  | VARCHAR(50)        |
-| disponible | BOOLEAN            |
+| name       | VARCHAR(100)       |
+| price      | NUMERIC(6,2)       |
+| category   | VARCHAR(50)        |
+| available  | BOOLEAN            |
 | created_at | TIMESTAMP          |
 
 ---
 
-# 🚀 API REST
+# 🚀 REST API
 
-| Méthode | Endpoint       | Description              |
-| ------- | -------------- | ------------------------ |
-| GET     | /api/plats     | Récupérer tous les plats |
-| GET     | /api/plats/:id | Récupérer un plat        |
-| POST    | /api/plats     | Ajouter un plat          |
-| PUT     | /api/plats/:id | Modifier un plat         |
-| DELETE  | /api/plats/:id | Supprimer un plat        |
+| Method | Endpoint       | Description            |
+| ------ | -------------- | ---------------------- |
+| GET    | /api/plats     | Retrieve all dishes    |
+| GET    | /api/plats/:id | Retrieve a single dish |
+| POST   | /api/plats     | Create a new dish      |
+| PUT    | /api/plats/:id | Update a dish          |
+| DELETE | /api/plats/:id | Delete a dish          |
 
 ---
 
-# 📚 Documentation API
+# 📚 API Documentation
 
-Une documentation interactive est disponible grâce à **Scalar UI**.
+Interactive API documentation is available using **Scalar UI**.
 
 ```text
 http://localhost:3000/docs
 ```
 
-Elle contient :
+The documentation includes:
 
-* Description des endpoints
-* Paramètres
-* Corps des requêtes
-* Réponses
-* Codes HTTP
-* Exemples
-
----
-
-# 🔄 Synchronisation en arrière-plan
-
-La fonctionnalité principale du projet repose sur une tâche exécutée en arrière-plan.
-
-Fonctionnement :
-
-1. Expo Task Manager enregistre une tâche.
-2. Expo Background Task exécute la tâche selon les contraintes du système.
-3. L'application récupère le menu via l'API.
-4. Les données sont sauvegardées dans AsyncStorage.
-5. La date de synchronisation est enregistrée.
-6. En cas d'absence de réseau, les données du cache sont utilisées.
-7. L'utilisateur peut également lancer une synchronisation manuelle.
+* Endpoint descriptions
+* Parameters
+* Request bodies
+* Response examples
+* HTTP status codes
+* Usage examples
 
 ---
 
-# 📱 Fonctionnement hors-ligne
+# 🔄 Background Synchronization
 
-Lorsque le serveur ou Internet est indisponible :
+The core feature of this project is a background synchronization task.
 
-* Les données sont chargées depuis AsyncStorage.
-* Un bandeau informe l'utilisateur que l'application fonctionne en mode hors-ligne.
-* La dernière synchronisation reste affichée.
+How it works:
+
+1. Expo Task Manager registers a background task.
+2. Expo Background Task schedules its execution based on the operating system.
+3. The application fetches the latest menu from the REST API.
+4. The retrieved data is stored in AsyncStorage.
+5. The synchronization timestamp is saved.
+6. If the network is unavailable, cached data is loaded instead.
+7. Users can also trigger synchronization manually.
 
 ---
 
-# ⚙ Installation
+# 📱 Offline Mode
 
-## 1. Cloner le dépôt
+Whenever the server or Internet connection is unavailable:
+
+* Data is loaded from AsyncStorage.
+* A banner informs the user that the application is running in offline mode.
+* The last successful synchronization time is displayed.
+
+---
+
+# ⚙️ Installation
+
+## 1. Clone the Repository
 
 ```bash
 https://github.com/Ouhfi/Snack-Menu-Manager.git
@@ -220,7 +221,7 @@ npx expo start
 
 ---
 
-# 📌 Variables d'environnement
+# 🔑 Environment Variables
 
 Backend
 
@@ -236,21 +237,21 @@ DB_PASSWORD=password
 
 ---
 
-# 📸 Captures d'écran
+# 📸 Screenshots
 
-Ajouter ici :
+Add screenshots of:
 
-* Liste des plats
-* Formulaire
-* Mode hors-ligne
-* Documentation Scalar
-* Dernière synchronisation
+* Menu List
+* Add/Edit Dish Form
+* Offline Mode
+* Scalar API Documentation
+* Last Synchronization Status
 
 ---
 
-# 🧪 Tests
+# 🧪 Testing
 
-Le backend peut être testé avec :
+The backend API can be tested using:
 
 * Postman
 * Thunder Client
@@ -258,33 +259,33 @@ Le backend peut être testé avec :
 
 ---
 
-# 💡 Bonus réalisés
+# 💡 Bonus Features
 
-* Notification locale après synchronisation
-* Pull To Refresh
-* Optimistic Update
-* Filtre par catégorie
-* Recherche
-* Détection réseau
+* Local notifications after synchronization
+* Pull-to-refresh
+* Optimistic updates
+* Category filtering
+* Search functionality
+* Network connectivity detection
 * Pagination
 
 ---
 
-# 👨‍💻 Auteur
+# 👨‍💻 Author
 
 **Marouane Ouhfid**
 
 Full Stack Developer
 
-GitHub : https://github.com/Ouhfi
+**GitHub:** https://github.com/Ouhfi
 
-LinkedIn : https://www.linkedin.com/in/marouan-ouhfid-a6b132237/
+**LinkedIn:** https://www.linkedin.com/in/marouan-ouhfid-a6b132237
 
 ---
 
-# 📄 Licence
+# 📄 License
 
-Projet réalisé dans un objectif pédagogique.
+This project was developed for educational purposes.
 
-Libre d'utilisation pour l'apprentissage.
+Feel free to use it for learning and personal development.
 
