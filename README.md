@@ -189,7 +189,7 @@ Lorsque le serveur ou Internet est indisponible :
 ## 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/USERNAME/snack-menu-manager.git
+https://github.com/Ouhfi/Snack-Menu-Manager.git
 ```
 
 ---
