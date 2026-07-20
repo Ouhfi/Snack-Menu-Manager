@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="./assets/Image.png" alt="Snack Menu Manager Banner" width="100%">
+</p>
 # 🍔 Snack Menu Manager
 
 A **Full Stack** application that allows snack owners to manage their menu through a REST API and an Expo mobile application.
