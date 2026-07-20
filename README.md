@@ -1,7 +1,10 @@
+<h2> 🍔 Snack Menu Manager</h2>
+
+
 <p align="center">
   <img src="./assets/Image.png" width="900">
 </p>
-# 🍔 Snack Menu Manager
+
 
 A **Full Stack** application that allows snack owners to manage their menu through a REST API and an Expo mobile application.
 
