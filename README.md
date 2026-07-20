@@ -1,13 +1,8 @@
-<p align="center">
-  <img src="./assets/Image.png" alt="Snack Menu Manager Banner" width="100%">
-</p>
-
 <h2 align="center">🍔 Snack Menu Manager</h2>
 
 <p align="center">
-  A Full Stack application that helps snack owners manage their menu with automatic background synchronization and offline support.
+  <img src="./assets/Image.png" alt="Snack Menu Manager Banner" width="100%">
 </p>
-
 
 
 
