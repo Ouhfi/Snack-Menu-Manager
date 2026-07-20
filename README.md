@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/Image.png" alt="Snack Menu Manager Banner" width="100%">
+  <img src="./assets/Image.png" width="900">
 </p>
 # 🍔 Snack Menu Manager
 
